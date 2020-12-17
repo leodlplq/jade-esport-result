@@ -112,23 +112,41 @@ p{
     
 }
 
+.informations > .logos{
+    margin-top: 10px;
+    width: 70%;
+    margin: 0 auto;
+}
+
 .title_info{
     font-size: 2.5rem;
     position: relative;
-    display: inline;
+    display: inline-block;
+    box-shadow : inset 0 -20px 0 #245B4E;
+    margin-bottom: 50px;
     
 }
 
-.title_info::after{
-    content: "";
-    width: 50%;
-    height: 80%;
-    background-color: #245B4E;
-    position: absolute;
-    right: -10%;
-    top: 50%;
-    
+.footer{
+    padding: 50px 0px;
+    background-color: #1c1c1c;
 }
+.footer > .inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+.footer > .inner > p{
+    width: 40%;
+    text-align: right;
+}
+
+.footer > .inner  a{
+    color: white;
+}
+
 .main_game{
     padding: 20px 0px;
     height: 100vh;
