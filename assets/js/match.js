@@ -68,11 +68,31 @@ window.addEventListener('load', ()=>{
             let id1 = data[j].opponents[0].opponent.id;
             let id2 = data[j].opponents[1].opponent.id;
 
-            console.log(data[j].opponents[0].opponent.name, "vs",data[j].opponents[1].opponent.name )
-            img.setAttribute("src", `${data[j].opponents[0].opponent.image_url}`)
-            img2.setAttribute("src", `${data[j].opponents[1].opponent.image_url}`)
-            name.innerHTML = "["+data[j].opponents[0].opponent.acronym +"] "+ data[j].opponents[0].opponent.name;
-            name2.innerHTML = "["+data[j].opponents[1].opponent.acronym +"] "+ data[j].opponents[1].opponent.name;
+            
+            if(data[j].opponents[0].opponent.image_url == null){
+                img.setAttribute("src", `/assets/img/no-images.png`)
+            } else {
+                img.setAttribute("src", `${data[j].opponents[0].opponent.image_url}`)
+            }
+
+            if(data[j].opponents[1].opponent.image_url == null){
+                img2.setAttribute("src", `/assets/img/no-images.png`);
+            } else {
+                console.log('lol faut mettre mtn encule')
+                img2.setAttribute("src", `${data[j].opponents[1].opponent.image_url}`)
+            }
+            
+            if(data[j].opponents[0].opponent.acronym == null){
+                name.innerHTML = data[j].opponents[0].opponent.name;
+            } else {
+                name.innerHTML = "["+data[j].opponents[0].opponent.acronym +"] "+ data[j].opponents[0].opponent.name;
+            }
+
+            if(data[j].opponents[1].opponent.acronym == null){
+                name2.innerHTML = data[j].opponents[1].opponent.name;
+            } else {
+                name2.innerHTML = "["+data[j].opponents[1].opponent.acronym +"] "+ data[j].opponents[0].opponent.name;
+            }
             console.log(data[j].results[0].team_id == id1);
             console.log(data[j].results[1].team_id == id2);
             score.innerHTML = data[j].results[0].team_id == id1 ? data[j].results[0].score : data[j].results[1].score;
@@ -97,21 +117,7 @@ window.addEventListener('load', ()=>{
             
 
 
-        }
-            // data.forEach(el=>{
-            //     let divtoAdd= document.createElement('div');
-            //     let img = document.createElement('img');
-            //     let text = document.createElement('span');
-                    
-            //     img.setAttribute("src", `${el.image_url}`);
-            //     text.innerHTML = el.name;
-            //     divtoAdd.appendChild(img);
-            //     divtoAdd.appendChild(text)
-                    
-            //     _div.appendChild(divtoAdd)
-            // });
-               
-                
+        }              
        
     }
 
