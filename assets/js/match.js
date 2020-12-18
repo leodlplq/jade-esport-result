@@ -1,5 +1,9 @@
 window.addEventListener('load', ()=>{
+    let matches;
     let game;
+    let token = "6LaTSNDKfKL7MRAo_mXEtywNTIaWfYy23jPuk4J7MX394vSkY7E";
+    let _matches = document.querySelector('.matches');
+    let _matchesAll = document.querySelector('.matches_all');
     let url = window.location.href.split("/");
     console.log(url);
     if(url.includes('rl')){
@@ -12,11 +16,6 @@ window.addEventListener('load', ()=>{
         game = "lol";
     }
 
-    let matches;
-    let token = "6LaTSNDKfKL7MRAo_mXEtywNTIaWfYy23jPuk4J7MX394vSkY7E";
-    let _matches = document.querySelector('.matches');
-
-    console.log(game)
 
     async function getMatchesFromAPI(game){
 
@@ -36,6 +35,11 @@ window.addEventListener('load', ()=>{
         matches = await getMatchesFromAPI(game);
         displayMatches(2, matches);
         
+    }
+
+    async function displayAllMatches(){
+        matches = await getMatchesFromAPI(game);
+        displayMatches(matches.length, matches);
     }
 
     async function displayMatches(i, data){
@@ -91,7 +95,7 @@ window.addEventListener('load', ()=>{
             if(data[j].opponents[1].opponent.acronym == null){
                 name2.innerHTML = data[j].opponents[1].opponent.name;
             } else {
-                name2.innerHTML = "["+data[j].opponents[1].opponent.acronym +"] "+ data[j].opponents[0].opponent.name;
+                name2.innerHTML = "["+data[j].opponents[1].opponent.acronym +"] "+ data[j].opponents[1].opponent.name;
             }
             console.log(data[j].results[0].team_id == id1);
             console.log(data[j].results[1].team_id == id2);
@@ -112,7 +116,12 @@ window.addEventListener('load', ()=>{
             divtoAddAll.appendChild(divtoAdd2);
             console.log(divtoAdd2);
 
-            _matches.appendChild(divtoAddAll);
+            if(url.includes('matches')){
+                _matchesAll.appendChild(divtoAddAll);
+            } else{
+                _matches.appendChild(divtoAddAll);
+            }
+            
 
             
 
@@ -121,9 +130,15 @@ window.addEventListener('load', ()=>{
        
     }
 
+    
+    
+    if(url.includes('matches')){
+        displayAllMatches();
+    } else{
+        getDataIntoVariables();
+    }
 
-
-    getDataIntoVariables();
+    
 
 });
 
