@@ -1,11 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: Roboto;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 
 p {
   font-size: 1.3rem;
@@ -356,7 +357,7 @@ p {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .nav_links li a {
     font-size: 1.4em;
   }
@@ -368,7 +369,7 @@ p {
   }
 
   .title_main {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     text-align: center;
   }
 
@@ -389,11 +390,12 @@ p {
   }
 
   .informations > p {
-      padding-bottom: 30px;
+    font-size: 1.2rem;
+    padding-bottom: 40px;
   }
 
   .title_info > h1 {
-    font-size: 1.9rem;
+    font-size: 1.8rem;
   }
 
   .title_info > a {
@@ -401,6 +403,89 @@ p {
   }
 
   .footer > .inner > p {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    width: 200px;
+  }
+
+  .matches,
+  .leagues,
+  .tournaments,
+  .teams {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .matches_all,
+  .leagues_all,
+  .tournaments_all,
+  .teams_all {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+
+  .match {
+    display: flex;
+    flex-basis: 40%;
+    width: 40%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    flex-direction: column;
+  }
+
+  .league,
+  .tournament,
+  .team {
+    display: flex;
+    flex-basis: 20%;
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    flex-direction: column;
+  }
+
+  .team_match {
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+
+  }
+
+  .team_match:first-child {
+    margin-right: 0px;
+  }
+
+  .img_match {
+    width: 110px;
+    height: 110px;
+    margin-bottom: 20px;
+  }
+
+  .img_league {
+    width: 70px;
+    height: 70px;
+  }
+
+  .img_match > img,
+  .img_league > img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+  }
+
+  .name_match,
+  .name_league {
+    font-size: 15px;
+    text-align: center;
+    display: inline;
+  }
+
+  .score {
+    font-size: 20px;
+    font-weight: 700;
   }
 }
