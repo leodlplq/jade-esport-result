@@ -357,6 +357,65 @@ p {
   }
 }
 
+@keyframes loading-barre{
+  0%{
+    width: 0%;
+  }
+
+  100%{
+    width: 100%;
+  }
+}
+
+@keyframes getout{
+  0%{
+    top: 0;
+  }
+
+  100%{
+    top: -100%;
+  }
+}
+
+.loading{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  animation: getout 1s ease forwards 4s;
+}
+
+.loading > img{
+  margin-bottom: 20px;
+}
+
+.loading-barre{
+  width: 250px;
+  height: 10px;
+  background-color: rgb(197, 197, 197);
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+
+}
+
+.loaded{
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color:  #245b4e;
+  animation: loading-barre 2s forwards 1s;
+}
+
 @media screen and (max-width: 800px) {
 
   .main {
