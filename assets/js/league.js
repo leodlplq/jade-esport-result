@@ -19,11 +19,9 @@ window.addEventListener('load', ()=>{
 
     async function getLeaguesFromAPI(game){
 
-        let response = await fetch(`https://api.pandascore.co/${game}/leagues?token=${token}&per_page=100&page=0`);
+        let response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.pandascore.co/csgo/leagues?token=6LaTSNDKfKL7MRAo_mXEtywNTIaWfYy23jPuk4J7MX394vSkY7E&per_page=100&page=0`);
         let body = await response.json();
         
-       
-
         try{
             return body;
         }catch{

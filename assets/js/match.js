@@ -19,7 +19,7 @@ window.addEventListener('load', ()=>{
 
     async function getMatchesFromAPI(game){
 
-        let response = await fetch(`https://api.pandascore.co/${game}/matches/past?token=${token}&per_page=100&page=0`);
+        let response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.pandascore.co/${game}/matches/past?token=${token}&per_page=100&page=0`);
         let body = await response.json();
         
        

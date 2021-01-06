@@ -23,7 +23,7 @@ window.addEventListener('load', ()=>{
         let i = 0;
 
         do{
-            let response = await fetch(`https://api.pandascore.co/${game}/teams?token=${token}&per_page=100&page=${i}`);
+            let response = await fetch(`https://cors-anywhere.herokuapp.com/https://api.pandascore.co/${game}/teams?token=${token}&per_page=100&page=${i}`);
             var body = await response.json();
             i++;
             body.forEach(element => {
